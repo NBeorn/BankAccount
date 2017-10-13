@@ -9,10 +9,15 @@ namespace BankAccount
     class Accounts
     {
         protected double accountNumber;
-        protected double accountBalance;
+        protected double accountBalance = 1200.00d;
         protected string accountType;
 
-        public string AccountBalance()
+        public double AccountBalance
+        {
+            get { return this.AccountBalance; }
+        }
+
+        public string GetAccountBalance()
         {
             return "Current balance: " + accountBalance;
         }
@@ -21,14 +26,14 @@ namespace BankAccount
         {
             Console.WriteLine("How much would you like to deposit?");
             accountBalance = accountBalance + double.Parse(Console.ReadLine());
-            Console.WriteLine("\n" + AccountBalance());
+            Console.WriteLine("\n" + GetAccountBalance());
         }
 
         public void Withdraw()
         {
             Console.WriteLine("How much would you like to withdraw?");
             accountBalance = accountBalance - double.Parse(Console.ReadLine());
-            Console.WriteLine("\n" + AccountBalance());
+            Console.WriteLine("\n" + GetAccountBalance());
         }
     }
 }
