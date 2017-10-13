@@ -10,6 +10,15 @@ namespace BankAccount
     {
         static void Main(string[] args)
         {
+            do
+            {
+                Client greg = new Client();
+                Checking checking = new Checking();
+                Savings savings = new Savings();
+
+
+            }
+            while (exit == "no");
         }
     }
 }

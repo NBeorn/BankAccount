@@ -8,5 +8,6 @@ namespace BankAccount
 {
     class Client
     {
+        public string clientName = "Greg Hastings";
     }
 }
