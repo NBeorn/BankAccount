@@ -26,7 +26,8 @@ namespace BankAccount
         {
             Console.WriteLine("How much would you like to withdraw?");
             Console.WriteLine();
-            accountBalance = accountBalance - double.Parse(Console.ReadLine());
+            double withdraw = double.Parse(Console.ReadLine());
+            accountBalance = accountBalance - withdraw;
             Console.WriteLine("\n" + AccountBalance());
         }
 

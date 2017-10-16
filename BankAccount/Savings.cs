@@ -18,5 +18,21 @@ namespace BankAccount
         {
             return "Savings Balance: $" + Math.Round(accountBalance, 2);
         }
+
+        public override void Withdraw()
+        {
+            Console.WriteLine("How much would you like to withdraw?");
+            Console.WriteLine();
+            double withdraw = double.Parse(Console.ReadLine());
+            if ((accountBalance - withdraw < 0))
+            {
+                Console.WriteLine("\nInvalid withdrawal, cannot overdraft savings.");
+            }
+            else
+            {
+                accountBalance = accountBalance - withdraw;
+                Console.WriteLine("\n" + AccountBalance());
+            }
+        }
     }
 }
