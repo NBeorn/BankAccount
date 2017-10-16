@@ -6,34 +6,35 @@ using System.Threading.Tasks;
 
 namespace BankAccount
 {
-    class Accounts
+    abstract class Accounts
     {
         protected double accountNumber;
-        protected double accountBalance = 1200.00d;
-        protected string accountType;
+        protected double accountBalance;
+        protected static int accountType;
 
-        public double AccountBalance
-        {
-            get { return this.AccountBalance; }
-        }
+        public abstract string AccountBalance(); //so Checking and Savings can have unique versions containing different starting values
 
-        public string GetAccountBalance()
-        {
-            return "Current balance: " + accountBalance;
-        }
-
-        public void Deposit()
+        public virtual void Deposit()
         {
             Console.WriteLine("How much would you like to deposit?");
+            Console.WriteLine();
             accountBalance = accountBalance + double.Parse(Console.ReadLine());
-            Console.WriteLine("\n" + GetAccountBalance());
+            Console.WriteLine("\n" + AccountBalance()); //since AccountBalance() is unique to Savings and Checking, it knows which value to use
         }
 
-        public void Withdraw()
+        public virtual void Withdraw()
         {
             Console.WriteLine("How much would you like to withdraw?");
+            Console.WriteLine();
             accountBalance = accountBalance - double.Parse(Console.ReadLine());
-            Console.WriteLine("\n" + GetAccountBalance());
+            Console.WriteLine("\n" + AccountBalance());
+        }
+
+        public static void AccountType()
+        {
+            Console.WriteLine("\nFor which account?");
+            Console.WriteLine("1. Checking");
+            Console.WriteLine("2. Savings");
         }
     }
 }
